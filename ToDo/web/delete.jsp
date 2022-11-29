@@ -11,6 +11,7 @@
         <title>Search and Delete</title>
     </head>
     <body>
+        <center>
             <%@include  file="memu.jsp" %>
 
         <%
@@ -59,18 +60,32 @@
             <input type="hidden" name="check"/>
             <br>
             <br>
+            <div class="container">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                
             <input value="<%=serialno%>" autocomplete="off" name="serialno" type="hidden">
             <br>
-            task<input value="<%=task%>"  name="task" type="text">
+            <div class="form-floating mb-3">
+                    <input value="<%=task%>" type="task" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput">Task</label>
+                </div>
             <br>
-            description<textarea   name="description" ><%=description%></textarea>
+             <div class="form-floating mb-3">
+                    <input value="<%=description%>" type="description" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput">description</label>
+                </div>
             <br>
-            taskstatus<input value="<%=taskstatus%>"  name="taskstatus" type="text">
+             <div class="form-floating mb-3">
+                    <input value="<%=taskstatus%>" type="taskstatus" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput">taskstatus</label>
+                </div>
             <br>
             <br>
  
 
-            <input type="submit" name="option" value="Delete"/>
+            <input class="btn btn-danger" type="submit" name="option" value="Delete"/>
         </form>
     </center>
 </body>

@@ -1,3 +1,5 @@
+
+
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="database.DbConnect"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,6 +14,7 @@
     <center>
         <h1>Products</h1>
         <%
+
             String check = request.getParameter("check");
             String option = "";
             boolean ispostback;
@@ -20,8 +23,10 @@
             } else {
                 ispostback = true;
             }
+
             String productid = "", productname = "", price = "", description = "", discount = "", measurement = "", productcategory = "", result = "";
             System.out.println(ispostback);
+
             if (ispostback) {
                 try {
                     option = request.getParameter("option");
@@ -33,13 +38,16 @@
                         discount = request.getParameter("discount");
                         measurement = request.getParameter("measurement");
                         productcategory = request.getParameter("productcategory");
+
                         PreparedStatement ps = DbConnect.connect().prepareStatement("insert into products values(productseq.nextval,?,?,?,?,?,?)");
+
                         ps.setString(1, productname);
                         ps.setString(2, price);
                         ps.setString(3, description);
                         ps.setString(4, discount);
                         ps.setString(5, measurement);
                         ps.setString(6, productcategory);
+
                         int n = ps.executeUpdate();
                         result = "Inserted " + n + " records";
                     }
@@ -48,6 +56,7 @@
                     result = ex.getMessage();
                 }
             }
+
         %>
         <%=result%>
         

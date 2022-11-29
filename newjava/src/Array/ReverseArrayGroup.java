@@ -27,8 +27,8 @@ public class ReverseArrayGroup {
         }
         getReverse(arr,0,k-1);
         getReverse(arr, n, n-k);
- for (int i = 0; i <= arr.length - 1; i++) {
-
+ for (int i = 0; i <= arr.length - 1; i+=k) {
+System.out.print(i);
         }
         System.out.println(Arrays.toString(arr));
 getReverse(arr,0,k-1);

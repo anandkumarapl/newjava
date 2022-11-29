@@ -3,12 +3,12 @@ package database;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class Utilities {
-    public static String getTodoList() {
+public class previoustask {
+    public static String getTask() {
         try {
             String output = "<center>\n<table class=\" shadow-lg table table-striped table-hover \" border='1'>\n";
             output += "<tr><th>SNo </th><th>Task </th><th>Description </th><th>Status </th><th>Date </th><th>Delete </th><th>Update </th></tr>\n";
-            PreparedStatement ps = DbConnect.connect().prepareStatement("select   serialno,task,description,taskstatus,to_char(taskdate,'dd-Mon-yyyy-hh24:mi') as taskdate from todo order by serialno desc");
+            PreparedStatement ps = DbConnect.connect().prepareStatement("select   serialno,task,description,taskstatus,to_char(taskdate,'dd-Mon-yyyy-hh24:mi') as taskdate from todo where taskdate<sysdate order by serialno desc");
                         ResultSet rs = ps.executeQuery();
             int count = 1;
             while (rs.next()) {

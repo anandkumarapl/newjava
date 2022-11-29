@@ -11,7 +11,7 @@
     <center><title>update</title>
     </head>
     <body>
-            <%@include  file="memu.jsp" %>
+        <%@include  file="memu.jsp" %>
 
         <%
             String check = request.getParameter("check");
@@ -22,20 +22,19 @@
                 ispostback = true;
             }
             String serialno = "", task = "", description = "", taskstatus = "", result = "";
-            if(!ispostback)
-            {
-                 serialno = request.getParameter("sno");
-                    task = request.getParameter("Task");
-                    description = request.getParameter("Description");
-                    taskstatus = request.getParameter("taskstatus");
-                    PreparedStatement ps =DbConnect.connect().prepareStatement("select * from todo where serialno=?");
-                     ps.setString(1, serialno);
-                    ResultSet rs = ps.executeQuery();
-                    if (rs.next()) {
-                        task = "" + rs.getObject("task");
-                        description = "" + rs.getObject("description");
-                        taskstatus = "" + rs.getObject("taskstatus");
-                    }
+            if (!ispostback) {
+                serialno = request.getParameter("sno");
+                task = request.getParameter("Task");
+                description = request.getParameter("Description");
+                taskstatus = request.getParameter("taskstatus");
+                PreparedStatement ps = DbConnect.connect().prepareStatement("select * from todo where serialno=?");
+                ps.setString(1, serialno);
+                ResultSet rs = ps.executeQuery();
+                if (rs.next()) {
+                    task = "" + rs.getObject("task");
+                    description = "" + rs.getObject("description");
+                    taskstatus = "" + rs.getObject("taskstatus");
+                }
             }
             System.out.println(ispostback);
 
@@ -45,12 +44,12 @@
                     task = request.getParameter("task");
                     description = request.getParameter("description");
                     taskstatus = request.getParameter("status");
-                    PreparedStatement ps =DbConnect.connect().prepareStatement("UPDATE  todo SET task=?,description=?,taskstatus=? where serialno=?");
-                    
+                    PreparedStatement ps = DbConnect.connect().prepareStatement("UPDATE  todo SET task=?,description=?,taskstatus=? where serialno=?");
+
                     ps.setString(1, task);
                     ps.setString(2, description);
                     ps.setString(3, taskstatus);
-                     ps.setString(4, serialno);
+                    ps.setString(4, serialno);
                     int n = ps.executeUpdate();
                     result = "Update" + n + " records";
                 } catch (Exception ex) {
@@ -66,14 +65,30 @@
         <form method="post">
             <h3><%=result%></h3>
             <input type="hidden"  name="check" value="1">
-            <input value="<%=serialno%>" autocomplete="off" name="serialno" type="hidden">
-            Task<input name="task" autocomplete="off" value="<%=task%>" type="text">
-            Description<textarea name="description" autocomplete="off"><%=description%></textarea>
-            taskstatus<input name="status" autocomplete="off" value="<%=taskstatus%>" type="text">
-            <br>
-            <br>
-            <input type="submit">
-            </body>
-        </form>
-        </html>
-            <%@include  file="footer.jsp" %>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <input value="<%=serialno%>" autocomplete="off" name="serialno" type="hidden">
+
+                        <br>
+                        <div class="form-floating mb-3">
+                            <input value="<%=task%>" type="task" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput">Task</label>
+                        </div>
+                        <br>
+                        <div class="form-floating mb-3">
+                            <input value="<%=description%>" type="description" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput">description</label>
+                        </div>
+                        <br>
+                        <div class="form-floating mb-3">
+                            <input value="<%=taskstatus%>" type="taskstatus" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput">taskstatus</label>
+                        </div>
+                        <br>
+                        <input class="btn btn-primary" type="submit">
+                        </body>
+                        </form>
+                                </html>
+                        <%@include  file="footer.jsp" %>
