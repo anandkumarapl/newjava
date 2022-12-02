@@ -55,6 +55,7 @@
                     ps.setString(4, taskdate);
                     int n = ps.executeUpdate();
                     Result = "Inserted " + " records";
+                    response.sendRedirect("inserttask.jsp");
                 } catch (Exception ex) {
                     System.out.println(ex);
                     Result = ex.getMessage();
@@ -76,20 +77,28 @@
                     <div class="col-md-6">
 
                         <div class="form-floating mb-3">
-                            <input name="task" type="task" class="form-control" id="floatingInput" placeholder="name@example.com"><%=task%>
+                            <input required name="task" type="text" class="form-control" id="floatingInput" placeholder="name@example.com"<%=task%>>
                             <label for="floatingInput">Task</label>
+                            <div class="valid-feedback">
+                            </div>
                         </div>
                         <div class="form-floating mb-3">
-                            <input name="description" type="text" class="form-control" id="floatingInput" placeholder="name@example.com"><%=description%>
+                            <input required name="description" type="text" class="form-control" id="floatingInput" placeholder="name@example.com"<%=description%>>
                             <label for="floatingInput">description</label>
+                             <div class="valid-feedback">
+                            </div>
                         </div>
                         <div class="form-floating mb-3">
-                            <input name="status" type="text" class="form-control" id="floatingInput" placeholder="name@example.com"><%=status%>
+                            <input required name="status" type="text" class="form-control" id="floatingInput" placeholder="name@example.com"<%=status%>>
                             <label for="floatingInput">status</label>
+                             <div class="valid-feedback">
+                            </div>
                         </div>
                         <div class="form-floating mb-3">
-                            <input name="taskdate" type="datetime-local" class="form-control" id="floatingInput" placeholder="name@example.com"><%=taskdate%>
+                            <input required name="taskdate" type="datetime-local" class="form-control" id="floatingInput" placeholder="name@example.com"<%=taskdate%>>
                             <label for="floatingInput">taskdate</label>
+                             <div class="valid-feedback">
+                            </div>
                         </div>
                         <br>
                         <input class="btn btn-primary" type="submit">

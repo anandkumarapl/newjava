@@ -21,6 +21,7 @@
             <li><a class="dropdown-item" href="inserttask.jsp">Task Insert</a></li>
              <li><a class="dropdown-item" href="previoustask.jsp">Previous Task</a></li>
               <li><a class="dropdown-item" href="futuretask.jsp">Future Task</a></li>
+              <li><a class="dropdown-item" href="alltask.jsp">All Task</a></li>
           </ul>
         </li>       
       </ul>
