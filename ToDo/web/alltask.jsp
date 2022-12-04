@@ -39,7 +39,7 @@
             }
             String serialno = "", task = "", description = "", status = "", taskdate="",Result = "";
             System.out.println(ispostback);
-            PreparedStatement Ps=database.DbConnect.connect().prepareStatement("");
+            PreparedStatement Ps=database.DbConnect.connect().prepareStatement("select*from todo order by task");
             %>
             <form method="post">
             <h3><%=Result%></h3>

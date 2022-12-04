@@ -1,4 +1,3 @@
-
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="database.DbConnect"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

@@ -2,14 +2,13 @@
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="database.DbConnect"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="header.jsp" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Product Select</title>
     </head>
     <body>
-        <%@include file="menu.jsp" %>
+        
 
     <center>
         <h1>Product Select</h1>
@@ -71,5 +70,4 @@
     </center>
 </body>
 </html>
-<%@include file="footer.jsp"%>
 
