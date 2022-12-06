@@ -17,4 +17,18 @@ public class CopyConstructor {
       name=n;
       age=j;
     }
+    public CopyConstructor(CopyConstructor s){
+        id=s.id;
+        name=s.name;
+    }
+    void display(){
+        System.out.println(id+""+name+""+""+age);
+    }
+    public static void main(String args[]){
+      CopyConstructor p=new CopyConstructor(1,"anand",22);
+        CopyConstructor z=new CopyConstructor(p);
+      p.display();
+      z.display();
+    }
+    
 }
