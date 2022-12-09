@@ -23,11 +23,27 @@ A method which is declared as abstract and does not have implementation is known
 
 abstract method--------------
 
-abstract void printStatus();//no method body and abstract  
+abstract void printStatus();//no method body and abstract 
+
+Abstraction in Java
+Abstraction एक प्रक्रिया है जिसमें implementation को छुपा दिया जाता है और user को केवल functionality को ही show किया जाता है.
+दूसरे शब्दों में कहें तो, “यह user को केवल आवश्यक जानकारी ही show करता है और जो background की details होती हैं उन्हें hide कर दिया जाता है.”
+
+उदाहरण के लिए:- हम whatsapp में message को type करते है और उसे send कर देते है.
+लेकिन हमें उसकी internal working के बारें में पता नहीं होता कि message कैसे send होता है.
  */
 package Java;
-abstract class Abstract {
-    void Abstract(){
-        
-    }
-}
+abstract class Bike{  
+  abstract void run();  
+} 
+class Honda extends Bike{  
+//@Override
+void run()
+{
+    System.out.println("running safely");
+}  
+public static void main(String args[]){  
+ Honda p1 = new Honda();  
+ p1.run();  
+}  
+}  

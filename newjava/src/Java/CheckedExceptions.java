@@ -8,13 +8,14 @@ A partially checked exception is a checked exception where some of its child cla
 like Exception.
  */
 package Java;
+
 public class CheckedExceptions {
-    public static void main(String args[]){
-        try{
-            
-        }
-        catch( ex){
-            
+
+    public static void main(String args[]) {
+        try {
+
+        } catch (Exception ex) {
+
         }
     }
 }

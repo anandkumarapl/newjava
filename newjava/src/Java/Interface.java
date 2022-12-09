@@ -26,17 +26,17 @@ Interface fields are public, static and final by default,
 and the methods are public and abstract.
  */
 package Java;
-interface printable{  
-void print();  
+interface person{  
+void detail();  
 }  
-class Interface implements printable{  
-public void print()
+class Interface implements person{  
+public void detail()
 {
     System.out.println("Hello");
 }  
   
 public static void main(String args[]){  
 Interface p1 = new Interface();  
-p1.print();  
+p1.detail();  
  }  
 }  
