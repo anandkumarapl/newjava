@@ -2,7 +2,7 @@ package Sorting;
 
 public class BubbleSort {
     public static void main(String args[]){
-        int a[]={5,3,2,4};
+        int a[]={3,55,32,22,77,22,55,66};
         int n=a.length-1;
         int i,j,t = 0,temp;
         for(i=0;i<=n;i++){
@@ -18,7 +18,7 @@ public class BubbleSort {
             }
         
         for(int k=0;k<=n;k++){
-            System.out.print(a[k]);
+            System.out.print(a[k]+" ");
         }
     }
 }

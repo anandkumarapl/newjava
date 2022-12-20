@@ -1,21 +1,19 @@
 package Sorting;
 public class SelectionShort {
     public static void main(String args[]){
-        int i,j;
-      int a[]={1,3,2,5,4};  
+      int a[]={3,55,32,22,77,22,55,66};  
       int n=a.length-1;
-for( i=0;i<=n-1;i++){
+for(int i=0;i<=n;i++){
     int minmum=i;
-    for( j=i+1;j<=n;j++){
+    for(int j=i+1;j<=n;j++){
    if(a[j]<a[minmum]){
-      minmum=j;
       int t=a[minmum];
-      a[minmum]=a[i];
-      a[i]=t;
+      a[minmum]=a[j];
+      a[j]=t;
    }}
 }
       for(int k=0;k<=n;k++){
-          System.out.print(a[k]);
+          System.out.print(a[k]+" ");
       }
    }
 

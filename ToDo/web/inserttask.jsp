@@ -4,7 +4,8 @@
 <%@include file="header.jsp" %>
 
 <!DOCTYPE html>
-<html>
+<html>....
+    
     <head>
     <center>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
