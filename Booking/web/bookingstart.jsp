@@ -1,12 +1,11 @@
 <%@page import="utilities.utilities"%>
-
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="databasepackage.DbConnect"%>
 <%@include file="header.jsp" %>
 <body>
-    <%@include file="menu.jsp" %>
     <!--Content-->
-<body>
+    <%@include file="menu.jsp" %>
+    
     <%
         boolean ispostback = false;
         if (request.getParameter("check") != null) {
@@ -18,7 +17,7 @@
                 mobile = request.getParameter("mobile");
                 mobile = request.getParameter("number");
                 otp = utilities.otp(5);
-                PreparedStatement ps = DbConnect.connect().prepareStatement("insert into booking values(?,?)");
+                PreparedStatement ps = DbConnect.connect().prepareStatement("insert into booking values(?,?) ");
                ps.setString(1, mobile);
                ps.setString(2, otp);
                 ps.executeUpdate();
@@ -55,7 +54,5 @@
                 </div>
                 <br>
                 </form>
-                </body>
-                </html>
                 </center>
                 <%@include  file="footer.jsp" %>

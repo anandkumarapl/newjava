@@ -2,10 +2,8 @@
 <%@page import="java.sql.PreparedStatement"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="header.jsp" %>
-
 <!DOCTYPE html>
-<html>....
-    
+<html>
     <head>
     <center>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -38,16 +36,14 @@
             }
             String serialno = "", task = "", description = "", status = "", taskdate = "", Result = "";
             System.out.println(ispostback);
-
             if (ispostback) {
                 try {
-
                     task = request.getParameter("task");
                     description = request.getParameter("description");
                     status = request.getParameter("status");
                     taskdate = request.getParameter("taskdate");
                     out.println(taskdate);
-                    taskdate=taskdate.replace("T", "-");
+                    taskdate = taskdate.replace("T", "-");
                     PreparedStatement ps = database.DbConnect.connect().prepareStatement("insert into todo values(todoseq.nextval ,?,?,?,to_date(?,'yyyy-mm-dd-hh24:mi'))");
                     ps.setString(1, serialno);
                     ps.setString(1, task);
@@ -62,7 +58,6 @@
                     Result = ex.getMessage();
                 }
             }
-
         %>
 
 
@@ -86,19 +81,19 @@
                         <div class="form-floating mb-3">
                             <input required name="description" type="text" class="form-control" id="floatingInput" placeholder="name@example.com"<%=description%>>
                             <label for="floatingInput">description</label>
-                             <div class="valid-feedback">
+                            <div class="valid-feedback">
                             </div>
                         </div>
                         <div class="form-floating mb-3">
                             <input required name="status" type="text" class="form-control" id="floatingInput" placeholder="name@example.com"<%=status%>>
                             <label for="floatingInput">status</label>
-                             <div class="valid-feedback">
+                            <div class="valid-feedback">
                             </div>
                         </div>
                         <div class="form-floating mb-3">
                             <input required name="taskdate" type="datetime-local" class="form-control" id="floatingInput" placeholder="name@example.com"<%=taskdate%>>
                             <label for="floatingInput">taskdate</label>
-                             <div class="valid-feedback">
+                            <div class="valid-feedback">
                             </div>
                         </div>
                         <br>
@@ -107,17 +102,17 @@
                         <br>       
                         <br>
                         <%=Utilities.getTodoList()%>
-                        </body>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
                         </form>
-                        </center>>
-                                </html>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
+                        </body>
+                        </html>
+                        </center>
                         <%@include file="footer.jsp" %>

@@ -1,11 +1,9 @@
-<%@page import="utilities.utilities.otp(int)"%>
+<%@page import="utilities.utilities"%>
 <%@page import="databasepackage.DbConnect"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@include file="header.jsp" %>
 <body>
     <%@include file="menu.jsp" %>
-    <!--Content-->
-<body>
     <%
         String otp = "",mobile="";
         boolean ispostback = false;
@@ -13,7 +11,7 @@
             ispostback = true;        
         }
         
-        }
+        
     %>
     <center>
           <br>
@@ -40,7 +38,5 @@
 </div>
         <br>
     </form>
-</body>
-</html>
 </center>
 <%@include  file="footer.jsp" %>
