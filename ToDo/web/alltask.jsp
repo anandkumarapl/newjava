@@ -1,6 +1,5 @@
-<%@page import="database.DbConnect"%>
+
 <%@page import="database.alltask"%>
-<%@page import="database.previoustask"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="header.jsp" %>
@@ -42,7 +41,7 @@
             PreparedStatement Ps=database.DbConnect.connect().prepareStatement("select*from todo order by task");
             %>
             <form method="post">
-            <h3><%=Result%></h3>
+            <%=Result%>
             <input type="hidden"  name="check" value="1"><br>
             <br>
             

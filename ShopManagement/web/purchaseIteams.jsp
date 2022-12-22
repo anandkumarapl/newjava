@@ -1,16 +1,12 @@
-<%@page import="components.SelectBoxes"%>
+<%@page import="database.SelectBoxes"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="database.DbConnect"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>PurchaseItems</title>
-    </head>
+<%@include file="header.jsp" %>
+         <center>
     <body>
-    <center>
+        <%@include file="menu.jsp" %>
         <h1>PurchaseItems</h1>
         <%
             String check = request.getParameter("check");
@@ -49,20 +45,28 @@
                 }
             }
         %>
+           
+
         <form>
             <h3><%=result%></h3>
-            
-            
-           
-                    <form method="post">
+            <form method="post">
                         
             <input type="hidden"  name="check" value="1"><br>
-           
-            receiptno<input value="<%=receiptno%>" autocomplete="off" name="reciptno" type="number"><br>
+            <div class="container col-md-3">
+           <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">receiptNo</label>
+                    <input name="receiptNo" required type="number" class="form-control" id="exampleFormControlInput1" placeholder="receiptno" value="<%=receiptno%>">
+                </div>               
             productid<%=SelectBoxes.getProductsList("4", "productid")%><br>
-            quantity<input value="<%=quantity%>" autocomplete="off" name="quantity" type="number"><br>
-            price<input value="<%=price%>" autocomplete="off" name="price" type="number"><br>
-            <input name="option" type="submit">
+            <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">quantity</label>
+                    <input name="quantity" required type="number" class="form-control" id="exampleFormControlInput1" placeholder="quantity" value="<%=quantity%>">
+                </div>
+                 <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">price</label>
+                    <input name="price" required type="number" class="form-control" id="exampleFormControlInput1" placeholder="price" value="<%=price%>">
+                </div>
+            <input name="option" type="submit" class="btn btn-warning">
 
         </form>
            
@@ -70,4 +74,10 @@
                 
             </select>
     </body>
+    </center>
 </html>
+<br>
+<br>
+<br>
+<br>
+<%@include file="footer.jsp" %>%>

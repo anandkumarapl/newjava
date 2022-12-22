@@ -19,9 +19,6 @@
         %>
         <table border="1">
             <tr><th>Product id</th><th>Product Quantity</th></tr>
-
-
-
             <%
                 while (rs.next()) {
                     String productid = "" + rs.getObject("productname");

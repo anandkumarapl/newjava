@@ -1,5 +1,5 @@
 
-package components;
+package database;
 
 import database.DbConnect;
 import java.sql.PreparedStatement;

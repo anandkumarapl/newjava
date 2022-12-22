@@ -1,22 +1,23 @@
+
+
+<%@page import="database.alltask"%>
 <%@page import="java.sql.ResultSetMetaData"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="database.DbConnect"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="header.jsp" %>
-        <title>Product List</title>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Stock List</title>
     </head>
     <body>
     <center>
-        <style>      
-        tr{
-            color: black;
-        }
-    </style>
-        <h1>Product List</h1>
+        <h1>Stock List</h1>
 
         <%
-            PreparedStatement statement = DbConnect.connect().prepareStatement("select PRODUCTNAME  ,PRICE	,DESCRIPTION,	DISCOUNT,	UNITOFMEASUREMENT,	PRODUCTCATEGORY  from products order by productid desc");
+            PreparedStatement statement = DbConnect.connect().prepareStatement("select * from todo order by serialno");
             ResultSet rs = statement.executeQuery();
             ResultSetMetaData rsmd = rs.getMetaData();
             int n = rsmd.getColumnCount();
@@ -53,11 +54,7 @@
 
             %>
         </table>
-         
+<%=alltask.getTaskList()%>
     </center>
 </body>
 </html>
-<br>
-<br>
-<br>
- 

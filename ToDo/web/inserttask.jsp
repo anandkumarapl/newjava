@@ -59,11 +59,9 @@
                 }
             }
         %>
-
-
-        <h1>Todo</h1>
+<h1>Todo</h1>
         <form method="post">
-            <h3><%=Result%></h3>
+           <%=Result%>
             <input type="hidden"  name="check" value="1"><br>
             <br>
 

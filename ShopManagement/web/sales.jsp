@@ -1,9 +1,3 @@
-<%-- 
-    Document   : purchase
-    Created on : 8 Oct, 2022, 5:03:58 PM
-    Author     : satish 
---%>
-
 <%@page import="java.sql.Date"%>
 <%@page import="java.util.function.Supplier"%>
 <%@page import="java.sql.PreparedStatement"%>
@@ -42,7 +36,7 @@
                     amountpaid = request.getParameter("amountpaid");
                     amountpending = request.getParameter("amountpending");
                     remarks = request.getParameter("remarks");
-                    PreparedStatement ps = database.DbConnect.connect().prepareStatement("insert into sales values(salesseq.nextval,to_date(?,'yyyy-mm-dd'),?,?,?,?,?,?,?,?,?)");
+                    PreparedStatement ps = database.DbConnect.connect().prepareStatement("insert into sales values(salesseq.nextval,to_date(?,'yyyy-mm-dd'),?,?,?,?,?,?,?,?)");
                     ps.setString(1, receiptNo);
                     ps.setString(2, dateofsale);
                       ps.setString(3, customername);
@@ -62,7 +56,7 @@
 
         %>
 
-
+<form method="post">
         <form>
             <h3><%=result%></h3>
             <input type="hidden"  name="check" value="1"><br>

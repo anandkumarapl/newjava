@@ -1,3 +1,4 @@
+<%@page import="utilities.delete"%>
 <%@page import="utilities.utilities"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="databasepackage.DbConnect"%>
@@ -5,28 +6,34 @@
 <body>
     <!--Content-->
     <%@include file="menu.jsp" %>
-    
+
     <%
         boolean ispostback = false;
         if (request.getParameter("check") != null) {
             ispostback = true;
         }
-        String otp = "", mobile = "", result = "";
+        String sno = "", otp = "", mobile = "", bookingdate = "", result = "";
         if (ispostback) {
             try {
-                mobile = request.getParameter("mobile");
                 mobile = request.getParameter("number");
-                otp = utilities.otp(5);
-                PreparedStatement ps = DbConnect.connect().prepareStatement("insert into booking values(?,?) ");
-               ps.setString(1, mobile);
-               ps.setString(2, otp);
-                ps.executeUpdate();
+                otp = utilities.otp(5);              
+          PreparedStatement s = DbConnect.connect().prepareStatement("delete from booking where mobileno=?");
+              s.setString(1, mobile);
+               int p = s.executeUpdate();
+               result = "Deleted";
+                PreparedStatement ps = DbConnect.connect().prepareStatement("insert into booking values(bookingseq.nextval ,?,sysdate,?)");
+                ps.setString(1, mobile);
+                //ps.setString(2, bookingdate);
+                ps.setString(2, otp);
+                int n = ps.executeUpdate();
                 result = "Inserted";
+                //response.sendRedirect("validation.jsp?mobile=" + otp);
             } catch (Exception ex) {
                 System.out.println("ex");
                 result = "" + ex;
             }
         }
+
     %>
 <center>
     <h1>Booking App</h1>
@@ -41,6 +48,7 @@
                     <label for="exampleFormControlInput1" class="form-label">Enter mobile number</label>
                     <input name="number" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter mobile number" value="<%=mobile%>">
                 </div>
+
                 <div class="col-md-3">
                     <input  type="submit" class="form-control btn btn-danger" id="exampleFormControlInput1" value="Get Otp">
                 </div>
@@ -55,4 +63,5 @@
                 <br>
                 </form>
                 </center>
+                <%=delete.getTaskList()%>
                 <%@include  file="footer.jsp" %>
