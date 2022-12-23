@@ -1,5 +1,6 @@
-<%@page import="utilities.delete"%>
-<%@page import="utilities.utilities"%>
+<%@page import="database.utilities"%>
+<%@page import="database.getbooking"%>
+
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="databasepackage.DbConnect"%>
 <%@include file="header.jsp" %>
@@ -63,5 +64,4 @@
                 <br>
                 </form>
                 </center>
-                <%=delete.getTaskList()%>
                 <%@include  file="footer.jsp" %>

@@ -23,7 +23,7 @@
                 ispostback = true;
             }
 //out.println(ispostback);
-            String option = "", serialno = "", task = "", description = "", taskstatus = "",result="";
+            String option = "", serialno = "", task = "", description = "", status = "",result="";
             if(!ispostback)
             {
                 serialno = request.getParameter("sno");
@@ -33,7 +33,7 @@
                     if (rs.next()) {
                         task = "" + rs.getObject("task");
                         description = "" + rs.getObject("description");
-                        taskstatus = "" + rs.getObject("taskstatus");
+                        status = "" + rs.getObject("status");
                     }
             }
             if (ispostback) {
@@ -48,6 +48,7 @@
                     ps.setString(1, serialno);
                     int n=ps.executeUpdate();
                      result="Deleted " + n + " records";
+                     response.sendRedirect("inserttask.jsp");
                    
             }
             }
@@ -78,8 +79,8 @@
                 </div>
             <br>
              <div class="form-floating mb-3">
-                    <input value="<%=taskstatus%>" type="taskstatus" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">taskstatus</label>
+                    <input value="<%=status%>" type="taskstatus" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput">status</label>
                 </div>
             <br>
             <br>

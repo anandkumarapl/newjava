@@ -1,23 +1,19 @@
 
-
-<%@page import="database.alltask"%>
+<%@page import="databasepackage.DbConnect"%>
 <%@page import="java.sql.ResultSetMetaData"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
-<%@page import="database.DbConnect"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Stock List</title>
+        <title>All To Do</title>
     </head>
     <body>
     <center>
-        <h1>Stock List</h1>
-
         <%
-            PreparedStatement statement = DbConnect.connect().prepareStatement("select * from todo order by serialno");
+            PreparedStatement statement = DbConnect.connect().prepareStatement("select * from booking order by sno");
             ResultSet rs = statement.executeQuery();
             ResultSetMetaData rsmd = rs.getMetaData();
             int n = rsmd.getColumnCount();
@@ -41,7 +37,7 @@
                 <%
                     for (int i = 1; i <= n; i++) {
                 %>
-                <td><%=rs.getObject(i)%></td>
+                <th><%=rs.getObject(i)%></th>
 
 
                 <%
@@ -54,7 +50,6 @@
 
             %>
         </table>
-<%=alltask.getTaskList()%>
     </center>
 </body>
 </html>

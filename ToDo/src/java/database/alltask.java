@@ -15,7 +15,7 @@ public class alltask {
                 String serialno = "" + rs.getObject("serialno");
                 String task = "" + rs.getObject("task");
                 String description = "" + rs.getObject("description");
-                String status = "" + rs.getObject("taskstatus");
+                String status = "" + rs.getObject("status");
                 String date = "" + rs.getObject("taskdate");
                 output += "<tr><td>" + count + " </td><td>" + task + " </td><td>" + description + " </td><td>" + status + " </td><td>" + date + " </td><td><a href='delete.jsp?sno=" + serialno + "' target='_blank' title='delete this'><center><i  style='color:red;' class=\"fa fa-trash  fa-solid\"></i></center></a></td><td><a href='updatetask.jsp?sno=" + serialno + "' target='_blank'  title='update this'><center><i class=\"fa fa-edit  fa-solid\"></i></center></a></td></tr>\n";
 

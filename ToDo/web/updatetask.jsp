@@ -21,19 +21,20 @@
             } else {
                 ispostback = true;
             }
-            String serialno = "", task = "", description = "", taskstatus = "", result = "";
+            String serialno = "", task = "", description = "", status = "", result = "";
             if (!ispostback) {
                 serialno = request.getParameter("sno");
                 task = request.getParameter("Task");
                 description = request.getParameter("Description");
-                taskstatus = request.getParameter("taskstatus");
+                status = request.getParameter("status");
                 PreparedStatement ps = DbConnect.connect().prepareStatement("select * from todo where serialno=?");
                 ps.setString(1, serialno);
                 ResultSet rs = ps.executeQuery();
                 if (rs.next()) {
                     task = "" + rs.getObject("task");
                     description = "" + rs.getObject("description");
-                    taskstatus = "" + rs.getObject("taskstatus");
+                    status = "" + rs.getObject("status");
+                     
                 }
             }
             System.out.println(ispostback);
@@ -43,12 +44,11 @@
                     serialno = request.getParameter("serialno");
                     task = request.getParameter("task");
                     description = request.getParameter("description");
-                    taskstatus = request.getParameter("status");
-                    PreparedStatement ps = DbConnect.connect().prepareStatement("UPDATE  todo SET task=?,description=?,taskstatus=? where serialno=?");
-
+                    status = request.getParameter("status");
+                    PreparedStatement ps = DbConnect.connect().prepareStatement("UPDATE  todo SET task=?,description=?,status=? where serialno=?");
                     ps.setString(1, task);
                     ps.setString(2, description);
-                    ps.setString(3, taskstatus);
+                    ps.setString(3, status);
                     ps.setString(4, serialno);
                     int n = ps.executeUpdate();
                     result = "Update" + n + " records";
@@ -59,8 +59,6 @@
             }
 
         %>
-
-
         <h1>Update ToDo</h1>
         <form method="post">
             <h3><%=result%></h3>
@@ -73,18 +71,18 @@
 
                         <br>
                         <div class="form-floating mb-3">
-                            <input value="<%=task%>" type="task" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <input value="<%=task%>" type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
                             <label for="floatingInput">Task</label>
                         </div>
                         <br>
                         <div class="form-floating mb-3">
-                            <input value="<%=description%>" type="description" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <input value="<%=description%>" type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
                             <label for="floatingInput">description</label>
                         </div>
                         <br>
                         <div class="form-floating mb-3">
-                            <input value="<%=taskstatus%>" type="taskstatus" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">taskstatus</label>
+                            <input value="<%=status%>" type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput">status</label>
                         </div>
                         <br>
                         <input class="btn btn-primary" type="submit">
